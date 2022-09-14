@@ -1,19 +1,21 @@
 import React, { useContext, useState, Fragment } from 'react';
 
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { SocketContext } from '../../socketContext/socketContext';
+
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import PhoneIcon from '@mui/icons-material/Phone';
 import PhoneDisabledIcon from '@mui/icons-material/PhoneDisabled';
-
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { SocketContext } from '../../socketContext/socketContext';
+import Input from '../UI/Input/Input';
+import Button from '../UI/Button/Button';
 
 import classes from './Options.module.scss';
 
 const Options = ({ children }) => {
+  const [idToCall, setIdToCall] = useState('');
+
   const { me, callAccepted, name, setName, leaveCall, callUser, callEnded } =
     useContext(SocketContext);
-
-  const [idToCall, setIdToCall] = useState('');
 
   const onInputNameHandler = (event) => {
     setName(event.target.value);
@@ -30,24 +32,25 @@ const Options = ({ children }) => {
   const buttonDynamic = () => {
     if (callAccepted && !callEnded) {
       return (
-        <button className={classes['button--secondary']} onClick={leaveCall}>
-          <span>
-            <PhoneDisabledIcon />
-          </span>
+        <Button
+          className="button--secondary"
+          onClick={leaveCall}
+          type="button"
+          startIcon={<PhoneDisabledIcon />}
+        >
           Hang Up
-        </button>
+        </Button>
       );
     } else {
       return (
-        <button
+        <Button
+          className="button--primary"
           onClick={() => callUser(idToCall)}
-          className={classes['button--primary']}
+          type="button"
+          startIcon={<PhoneIcon />}
         >
-          <span>
-            <PhoneIcon />
-          </span>
           CALL
-        </button>
+        </Button>
       );
     }
   };
@@ -62,34 +65,29 @@ const Options = ({ children }) => {
       >
         <div className={classes.form__name}>
           <h2>Account Info</h2>
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            name="name"
+          <Input
             id="name"
+            inputName="name"
             placeholder="Enter your name"
             value={name}
-            onChange={onInputNameHandler}
+            onChangeHandler={onInputNameHandler}
+            className="input"
           />
           <CopyToClipboard text={me}>
-            <button className={classes['button--primary']}>
-              <span>
-                <AssignmentIcon />
-              </span>
+            <Button className="button--primary" startIcon={<AssignmentIcon />}>
               COPY YOUR ID
-            </button>
+            </Button>
           </CopyToClipboard>
         </div>
         <div className={classes.form__id}>
           <h2>Make a Call</h2>
-          <label htmlFor="id">ID to Call</label>
-          <input
-            type="text"
-            name="id"
+          <Input
             id="id"
+            inputName="id"
             placeholder="ID"
             value={idToCall}
-            onChange={onInputIdHandler}
+            onChangeHandler={onInputIdHandler}
+            className="input"
           />
           {buttonDynamic()}
         </div>

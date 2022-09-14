@@ -1,0 +1,16 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.input {
+  @include inputTemplate();
+
+  &:focus {
+    outline: none;
+    outline-offset: none;
+    border-bottom: 1px solid $hover-color;
+  }
+
+  &::placeholder {
+    color: white;
+  }
+}

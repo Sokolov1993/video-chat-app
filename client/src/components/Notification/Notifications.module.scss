@@ -3,6 +3,7 @@
 
 .notification {
   position: fixed;
+  z-index: 2;
   top: 50%;
   left: 50%;
   transform: translateY(-50%);
@@ -14,24 +15,8 @@
   justify-content: center;
   gap: 1rem;
   color: white;
-}
 
-.notification__button {
-  width: 20%;
-  @include buttonTemplate();
-
-  &:hover {
-    cursor: pointer;
-    background-color: $hover-color;
-  }
-}
-
-.notification__button--secondary {
-  width: 20%;
-  @include buttonTemplate($secondary-color);
-
-  &:hover {
-    cursor: pointer;
-    background-color: $hover-secondary-color;
+  button {
+    width: 20%;
   }
 }

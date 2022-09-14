@@ -1,0 +1,20 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.button--primary {
+  @include buttonTemplate();
+
+  &:hover {
+    cursor: pointer;
+    background-color: $hover-color;
+  }
+}
+
+.button--secondary {
+  @include buttonTemplate($secondary-color);
+
+  &:hover {
+    cursor: pointer;
+    background-color: $hover-secondary-color;
+  }
+}

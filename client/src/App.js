@@ -6,9 +6,6 @@ const App = () => {
   return (
     <Fragment>
       <Home />
-      {/* appBar */}
-      {/* videoPlayer */}
-      {/* options */}
     </Fragment>
   );
 };

@@ -10,10 +10,8 @@ const Main = () => {
   return (
     <main className={classes.main}>
       <section className={classes.wrapper}>
-        {/* AppBar */}{' '}
         <div className={classes.main__videoPlayer}>
           <VideoPlayer />
-          {/* <VideoPlayer /> */}
         </div>
         <Options>
           <Notifications />
