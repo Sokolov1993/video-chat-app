@@ -1,0 +1,30 @@
+@import './variables.scss';
+
+@mixin nameIdFormFields($width: 50%) {
+  width: $width;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+@mixin inputTemplate($height: 40px, $padding-left: 4px, $font-size: 15px) {
+  height: $height;
+  padding-left: $padding-left;
+  background-color: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid $primary-color;
+  color: white;
+  font-size: $font-size;
+}
+
+@mixin buttonTemplate($background-color: $primary-color) {
+  color: white;
+  background-color: $background-color;
+  height: 50px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}

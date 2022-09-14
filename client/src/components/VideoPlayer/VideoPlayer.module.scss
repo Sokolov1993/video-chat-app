@@ -1,0 +1,17 @@
+@import '../../styles/variables.scss';
+
+.video {
+  max-width: 570px;
+  width: 100%;
+  padding: 1rem;
+  background: $background-gradient;
+
+  h2 {
+    color: $primary-color;
+    margin-bottom: 0.5rem;
+  }
+
+  video {
+    width: 100%;
+  }
+}

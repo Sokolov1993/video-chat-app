@@ -1,0 +1,54 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.form {
+  max-width: 600px;
+  width: 100%;
+  min-height: 220px;
+  background-color: rgba(0, 0, 0, 0.342);
+  padding: 1rem;
+  display: inline-flex;
+  gap: 1rem;
+  color: white;
+
+  .button--primary {
+    @include buttonTemplate();
+
+    &:hover {
+      cursor: pointer;
+      background-color: $hover-color;
+    }
+  }
+
+  input {
+    @include inputTemplate();
+
+    &:focus {
+      outline: none;
+      outline-offset: none;
+      border-bottom: 1px solid $hover-color;
+    }
+
+    &::placeholder {
+      color: white;
+    }
+  }
+}
+
+.form__name {
+  @include nameIdFormFields();
+}
+
+.form__id {
+  @include nameIdFormFields();
+}
+
+// Doesnt work correctly
+.button--secondary {
+  @include buttonTemplate($secondary-color);
+
+  &:hover {
+    cursor: pointer;
+    background-color: $hover-secondary-color;
+  }
+}

@@ -1,0 +1,37 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.notification {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+  max-width: 800px;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: white;
+}
+
+.notification__button {
+  width: 20%;
+  @include buttonTemplate();
+
+  &:hover {
+    cursor: pointer;
+    background-color: $hover-color;
+  }
+}
+
+.notification__button--secondary {
+  width: 20%;
+  @include buttonTemplate($secondary-color);
+
+  &:hover {
+    cursor: pointer;
+    background-color: $hover-secondary-color;
+  }
+}
