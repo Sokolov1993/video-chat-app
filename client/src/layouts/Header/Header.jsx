@@ -10,7 +10,7 @@ const Header = () => {
     <header className={classes.header}>
       <div className={classes.wrapper}>
         <div className={classes.header__logo}>
-          <a href="/">
+          <a href="/" aria-label="Link to the home page">
             <img src={logo} alt="" />
           </a>
         </div>
