@@ -5,7 +5,7 @@
   max-width: 600px;
   width: 100%;
   min-height: 220px;
-  background-color: rgba(0, 0, 0, 0.342);
+  background-color: $background-gradient;
   padding: 1rem;
   display: inline-flex;
   gap: 1rem;
@@ -19,14 +19,30 @@
       background-color: $hover-color;
     }
   }
+
+  @media (max-width: 531px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
 }
 
 .form__name {
   @include nameIdFormFields();
+
+  @media (max-width: 531px) {
+    gap: 1rem;
+    @include nameIdFormFields(100%);
+  }
 }
 
 .form__id {
   @include nameIdFormFields();
+
+  @media (max-width: 531px) {
+    gap: 1rem;
+    @include nameIdFormFields(100%);
+  }
 }
 
 .button--secondary {

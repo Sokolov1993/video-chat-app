@@ -1,6 +1,8 @@
 import React from 'react';
 
 import logo from '../../assets/images/header/logo.png';
+import Navigation from './Navigation/Navigation';
+
 import classes from './Header.module.scss';
 
 const Header = () => {
@@ -12,16 +14,7 @@ const Header = () => {
             <img src={logo} alt="" />
           </a>
         </div>
-        <nav className={classes.header__nav}>
-          <ul>
-            <li>
-              <a href="/"> About App</a>
-            </li>
-            <li>
-              <a href="/"> Sign In </a>
-            </li>
-          </ul>
-        </nav>
+        <Navigation navClassName="header__nav" />
       </div>
     </header>
   );
