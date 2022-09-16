@@ -11,7 +11,7 @@ import Button from '../UI/Button/Button';
 
 import classes from './Options.module.scss';
 
-const Options = ({ children }) => {
+const Options = () => {
   const [idToCall, setIdToCall] = useState('');
 
   const { me, callAccepted, name, setName, leaveCall, callUser, callEnded } =
@@ -72,6 +72,7 @@ const Options = ({ children }) => {
             value={name}
             onChangeHandler={onInputNameHandler}
             className="input"
+            label="Name"
           />
           <CopyToClipboard text={me}>
             <Button className="button--primary" startIcon={<AssignmentIcon />}>
@@ -88,11 +89,11 @@ const Options = ({ children }) => {
             value={idToCall}
             onChangeHandler={onInputIdHandler}
             className="input"
+            label="Unique counterparty identifier"
           />
           {buttonDynamic()}
         </div>
       </form>
-      {children}
     </Fragment>
   );
 };

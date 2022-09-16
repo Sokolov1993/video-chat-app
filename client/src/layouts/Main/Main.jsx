@@ -13,9 +13,8 @@ const Main = () => {
         <div className={classes.main__videoPlayer}>
           <VideoPlayer />
         </div>
-        <Options>
-          <Notifications />
-        </Options>
+        <Options />
+        <Notifications />
       </section>
     </main>
   );

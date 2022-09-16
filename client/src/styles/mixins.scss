@@ -29,3 +29,19 @@
   gap: 4px;
   border: none;
 }
+
+@mixin defaultModal($zIndex: 2) {
+  position: fixed;
+  z-index: $zIndex;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+  max-width: 800px;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: white;
+}

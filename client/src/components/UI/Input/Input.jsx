@@ -8,11 +8,13 @@ const Input = ({
   placeholder,
   value,
   onChangeHandler,
-  className,
+  className = 'input',
+  label,
+  type = 'text',
 }) => {
   return (
     <Fragment>
-      <label htmlFor={id}>Name</label>
+      <label htmlFor={id}>{label}</label>
       <input
         type="text"
         name={inputName}

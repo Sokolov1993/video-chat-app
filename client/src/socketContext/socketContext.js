@@ -4,8 +4,8 @@ import Peer from 'simple-peer';
 
 const SocketContext = createContext();
 
-const socket = io('http://localhost:5000');
-// const socket = io('https://web-chat-app-i-see-you.herokuapp.com/');
+// const socket = io('http://localhost:5000');
+const socket = io('https://web-chat-app-i-see-you.herokuapp.com/');
 
 const ContextProvider = ({ children }) => {
   const [stream, setStream] = useState(null);
@@ -14,6 +14,7 @@ const ContextProvider = ({ children }) => {
   const [callAccepted, setCallAccepted] = useState(false);
   const [callEnded, setCallEnded] = useState(false);
   const [name, setName] = useState('');
+  const [error, setError] = useState({});
 
   const myVideo = useRef();
   const userVideo = useRef();
@@ -32,7 +33,7 @@ const ContextProvider = ({ children }) => {
         myVideo.current.srcObject = currentStream;
       }, 0);
     } catch (err) {
-      throw new Error(err);
+      setError(err);
     }
   };
 
@@ -119,6 +120,7 @@ const ContextProvider = ({ children }) => {
         callUser,
         answerCall,
         leaveCall,
+        error,
       }}
     >
       {children}

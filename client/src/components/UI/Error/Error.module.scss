@@ -1,0 +1,28 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+.error {
+  @include defaultModal(4);
+
+  background: $background-gradient;
+  top: 22rem;
+  min-height: 5rem;
+  border: 2px dotted $secondary-color;
+}
+
+.error__message {
+  color: $secondary-color;
+}
+
+.error__closeIcon {
+  font-size: 27px;
+  position: absolute;
+  right: 0.1rem;
+  top: 0.1rem;
+  color: $primary-color;
+
+  &:hover {
+    color: $hover-color;
+    cursor: pointer;
+  }
+}

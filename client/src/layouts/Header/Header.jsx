@@ -11,7 +11,7 @@ const Header = () => {
       <div className={classes.wrapper}>
         <div className={classes.header__logo}>
           <a href="/" aria-label="Link to the home page">
-            <img src={logo} alt="" />
+            <img src={logo} alt="Website logo with title: 'I see you'" />
           </a>
         </div>
         <Navigation navClassName="header__nav" />

@@ -2,22 +2,18 @@
 @import '../../styles/variables.scss';
 
 .notification {
-  position: fixed;
-  z-index: 2;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%);
-  transform: translateX(-50%);
-
-  max-width: 800px;
-  width: 100%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  color: white;
+  @include defaultModal();
 
   button {
     width: 20%;
+
+    @media (max-width: 480px) {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 0px 5px;
+    flex-direction: column;
   }
 }
