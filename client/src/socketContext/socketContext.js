@@ -4,8 +4,8 @@ import Peer from 'simple-peer';
 
 const SocketContext = createContext();
 
-// const socket = io('http://localhost:5000');
-const socket = io('https://web-chat-app-i-see-you.herokuapp.com/');
+const socket = io('http://localhost:5000');
+// const socket = io('https://web-chat-app-i-see-you.herokuapp.com/');
 
 const ContextProvider = ({ children }) => {
   const [stream, setStream] = useState(null);
@@ -19,19 +19,25 @@ const ContextProvider = ({ children }) => {
   const userVideo = useRef();
   const connectionRef = useRef();
 
-  useEffect(() => {
-    navigator.mediaDevices
-      .getUserMedia({ video: true, audio: true })
-      .then((currentStream) => {
-        setStream(currentStream);
-
-        setTimeout(() => {
-          myVideo.current.srcObject = currentStream;
-        }, 0);
-      })
-      .catch((err) => {
-        console.log(err);
+  const getMedia = async () => {
+    try {
+      const currentStream = await navigator.mediaDevices.getUserMedia({
+        video: true,
+        audio: true,
       });
+
+      setStream(currentStream);
+
+      setTimeout(() => {
+        myVideo.current.srcObject = currentStream;
+      }, 0);
+    } catch (err) {
+      throw new Error(err);
+    }
+  };
+
+  useEffect(() => {
+    getMedia();
 
     socket.on('me', (id) => {
       setMe(id);
